@@ -1,5 +1,5 @@
 {
-    "name": "mailjet/mailjet-swiftmailer",
+    "name": "einpix/mailjet-swiftmailer",
     "description": "A SwiftMailer transport implementation for Mailjet",
     "type": "library",
     "keywords": ["mailjet", "swiftmailer"],

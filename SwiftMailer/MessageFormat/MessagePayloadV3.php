@@ -48,7 +48,8 @@ class MessagePayloadV3 extends BaseMessagePayload {
                 $inline_attachments[] = array(
                     'Content-type' => $child->getContentType(),
                     'Filename' => $child->getFilename(),
-                    'content' => base64_encode($child->getBody())
+                    'content' => base64_encode($child->getBody()),
+                    'ContentID' => $child->getId(),
                 );
             } elseif ($child instanceof Swift_Attachment) {
                 //Handle regular attachments
@@ -98,6 +99,7 @@ class MessagePayloadV3 extends BaseMessagePayload {
         }
         if (count($inline_attachments) > 0) {
             $mailjetMessage['Inline_attachments'] = $inline_attachments;
+            $mailjetMessage['Mj-MIMEMessageStructure'] = 'related';
         }
 
         // @TODO bulk messages
